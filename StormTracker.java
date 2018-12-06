@@ -8,29 +8,39 @@ public class StormTracker {
     Random random = new Random();
 
     public void doCommand(String command) {
-        
-        String[] com = command.split(" ");
-        String y="";
-        String x ="";
-        for(int i = 1; i< com.length; i++){
-        x = com[i];
-        }
-        for (Storm val : storm) {
-            if (command.equals("STORM" + " " + x + " " + y)) {
-                storm.add(new Storm(wA.getNextStorm(), Integer.parseInt(x), Integer.parseInt(y)));
-            } else if (command.equals("UPGRADE" + " " + x)) {
-                val.update(random.nextInt(10));
+        String[] com = new String[4];
+        com = command.split(" ");
+        // for (Storm val : storm) {
+        if (command.equals("TICK")) {
+            System.out.println("Ticked");
 
-            } else if (command.equals("DOWNGRADE" + " " + x)) {
+        } else if (command.equals("STOP")) {
+            Runtime.getRuntime().addShutdownHook(new Thread() {
+                public void run() {
+                    // saved data
+                    System.out.println("Exiting");
+                }
 
-            } else if (command.equals("TICK")) {
+            });
 
-            } else if (command.equals("STOP")) {
-                System.exit(0);
-
+        } else if (command.equals("UPGRADE" + " " + com[1])) {
+            if (com[1] == com[1]) {
+                // val.update(random.nextInt(10));
+                System.out.println("Upgraded!!");
+            } else {
+                System.out.println("No Storm Found!");
             }
+        } else if (command.equals("DOWNGRADE" + " " + com[1])) {
+            System.out.println("Downgraded!!");
+        } else if (command.equals("STORM" + " " + com[1] + " " + com[2])) {
+            storm.add(new Storm(wA.getNextStorm(), Integer.parseInt(com[1]), Integer.parseInt(com[2])));
+            System.out.println("New Storm Created");
 
+        } else if (command.equals(" " + " " + " " + " " + " ")) {
+            System.out.println("Command is empty");
         }
+
+        // }
     }
-    
+
 }

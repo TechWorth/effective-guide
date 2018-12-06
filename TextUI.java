@@ -13,11 +13,11 @@ public class TextUI {
     }
 
     public static void main(String[] args) {
-        //TextUI text = new TextUI(new StormTracker());
+        TextUI text = new TextUI(new StormTracker());
 
-        // WeatherAuthority we = new WeatherAuthority();
-        // System.out.println(we.getNextStorm());
-        String command = "STORM 4 5";
+         WeatherAuthority we = new WeatherAuthority();
+         System.out.println(we.getNextStorm());
+        /*String command = "STORM 4 5";
         String[] com = command.split(" ");
         if (command.equals(com[0])){
             System.out.println(com[0]);
@@ -27,6 +27,6 @@ public class TextUI {
         for(int i = 0; i< com.length; ++i){
         x+= " "+com[i];
         }
-        System.out.println(x);
+        System.out.println(x);*/
     }
 }
