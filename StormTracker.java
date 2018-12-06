@@ -24,8 +24,10 @@ public class StormTracker {
             });
 
         } else if (command.equals("UPGRADE" + " " + com[1])) {
-            if (com[1] == com[1]) {
-                // val.update(random.nextInt(10));
+
+            if (storm.contains(com[1])) {
+                for (Storm val : storm)
+                    val.update(random.nextInt(10));
                 System.out.println("Upgraded!!");
             } else {
                 System.out.println("No Storm Found!");
