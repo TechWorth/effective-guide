@@ -14,10 +14,8 @@ public class OOP_project {
 
         scan.close();
 
-        Country c = new Country("Jamaica", 20000, 0, 2);
+        Country c = new Country("Jamaica", 2700000, 0, 2);
         System.out.println(c.toString());
-
-        
 
     }
 }
