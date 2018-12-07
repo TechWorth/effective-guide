@@ -3,32 +3,32 @@ import java.util.*;
 import java.util.Random;
 
 public class WeatherAuthority {
-    ArrayList<Storm> storms = new ArrayList<Storm>();
-    ArrayList<Storm> usedname = new ArrayList<Storm>();
-    String name = "" ;
-    String name3 = "";
+    ArrayList<Storm> newStorms;// Array List of storms
+    String name = "";// Stores the names of new storm
     private Random random = new Random();
 
-    public String getNextStorm() {
+    public WeatherAuthority() {
+        newStorms = new ArrayList<Storm>();
         try {
             Scanner scan = new Scanner(new File("Storms.txt"));
-            while (scan.hasNextLine()) {
-                storms.add(new Storm(scan.nextLine()));
+            while (scan.hasNextLine()) {// Checking for next name in the file
+                newStorms.add(new Storm(scan.nextLine()));// adds name to Storm Construtor
             }
         } catch (Exception e) {
 
         }
 
-        for (Storm v : storms)
-            name += v.getName() + "\n";
+    }
 
-            for (int i =0; i < storms.size(); i++){
-                Storm name2 = storms.get(random.nextInt(storms.size()));
-                
-                name3 = name2.getName();
-            }
+    public String getNextStorm() {
 
-        return name3;
+        for (int i = 0; i < newStorms.size(); i++) {// loop through Array list of storms to get names
+            Storm randomName = newStorms.get(random.nextInt(newStorms.size()));// ramdomly taken from the Array list
+
+            name = randomName.getName();
+        }
+
+        return name;
     }
 
 }
