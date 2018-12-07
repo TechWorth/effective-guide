@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.EventQueue;
 import java.awt.Button;
-import javax.swing.ButtonGroup;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
@@ -14,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+
 
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -86,8 +86,21 @@ public class GUI extends JFrame {
          * ImageIcon(GUI.class.getResource("bg.PNG"))); panel2.add(label);
          */
 
-        // Radiolistener
-        // Radiolistener
+        JRadioButton map = new JRadioButton("Map");
+        map.setMnemonic(KeyEvent.VK_B);
+        map.setBounds(395, 58, 114, 14);
+        map.setActionCommand("Map");
+        map.setSelected(true);
+
+        JRadioButton bullitin = new JRadioButton("Bulletin");
+        bullitin.setMnemonic(KeyEvent.VK_B);
+        bullitin.setActionCommand("Bulletinn");
+        bullitin.setSelected(false);
+        contentPane.add(bullitin);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(map);
+        group.add(bullitin);
 
         // nav west
         JPanel west = new JPanel();
@@ -95,11 +108,11 @@ public class GUI extends JFrame {
         west.setBounds(0, 0, 170, 500);
         contentPane.add(west);
         west.setLayout(null);
-
-        String[] storm = { "Select Storm", "", "" };
+        
+        String[] storm={"Select Storm","",""};
         JComboBox bar = new JComboBox(storm);
         JLabel box = new JLabel("Select Storm");
-        JPanel pan1 = new JPanel();
+        JPanel pan1= new JPanel();
         bar.setForeground(Color.WHITE);
         bar.setBackground(new Color(241, 57, 83));
         bar.setBounds(10, 10, 150, 40);
@@ -228,17 +241,13 @@ public class GUI extends JFrame {
             }
         });
 
-        JRadioButton bul = new JRadioButton("Bulletin");
+        JRadioButton bul = new JRadioButton("Bulliting");
         // mapRadio.setForeground(Color.DARK_GRAY);
         bul.setFont(new Font("Tahoma", Font.PLAIN, 12));
         bul.setBackground(new Color(105, 105, 105));
         bul.setBounds(20, 110, 70, 20);
         bul.setSelected(false);
         east.add(bul);
-        // buttongroup creation
-        ButtonGroup bgroup = new ButtonGroup();
-        bgroup.add(mapRadio);
-        bgroup.add(bul);
 
         JPanel north = new JPanel();
         north.setBackground(Color.DARK_GRAY);

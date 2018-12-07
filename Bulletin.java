@@ -12,10 +12,10 @@ public class Bulletin {
 
     public Bulletin(String cname, String name,Alert alert){
         super(cname,sname);
+        if (alert
          do {
             count++;
         }while (count=1);
-
         public int getBulletinNo() {
             return count;
         }
