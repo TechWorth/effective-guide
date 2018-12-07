@@ -1,32 +1,40 @@
 import java.util.*;
 
 public class TextUI {
-
     Scanner scan = new Scanner(System.in);
+    StormTracker st;
+    public static int on = 1;
 
-    public TextUI(StormTracker st) {
-        System.out.println("The COMMANDS ARE:" + "\n \n" + "STORM X Y" + "\n" + "UPGRADE <Storm name>" + "\n"
-                + "DOWNGRADE <Storm name>" + "\n" + "TICK" + "\n" + "STOP" + "\n" + "\n" + "Please input a command: ");
-
-        st.doCommand(scan.nextLine());
+    public TextUI(StormTracker st) {// TextUI constructor
+        this.st = st;
         // code
     }
 
-    public static void main(String[] args) {
-        TextUI text = new TextUI(new StormTracker());
+    public void Showcommand() {
+        while (on == 1) {
+            System.out.println("-The COMMANDS ARE: -" + "\n \n" + "#STORM X Y" + "\n" + "#UPGRADE <Storm name>" + "\n"
+                    + "#DOWNGRADE <Storm name>" + "\n" + "#TICK" + "\n" + "#STOP" + "\n" + "\n");
 
-         WeatherAuthority we = new WeatherAuthority();
-         System.out.println(we.getNextStorm());
-        /*String command = "STORM 4 5";
-        String[] com = command.split(" ");
-        if (command.equals(com[0])){
-            System.out.println(com[0]);
+            String command = "";
+            System.out.println("#Please input a command: ");
+            command = scan.nextLine();
+            st.doCommand(command);
+
         }
-        String y = "";
-        String x = "";
-        for(int i = 0; i< com.length; ++i){
-        x+= " "+com[i];
-        }
-        System.out.println(x);*/
     }
+
+    public static void main(String[] args) {
+        // CountryList caribbean = new CountryList();
+        // System.out.println(caribbean.toString());
+        TextUI text = new TextUI(new StormTracker("Caribbean", 30, 30));// makes an instance of the
+        text.Showcommand();
+        // TextUi constructor
+
+        // DrawGrids dg = new DrawGrids("Draw Grids", 200, 200, 10, 10);
+        // dg.setVisible(true);
+        // dg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // dg.setLocationRelativeTo(null); // center the application window
+
+    }
+
 }
